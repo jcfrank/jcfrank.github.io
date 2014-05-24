@@ -3,7 +3,8 @@ layout: post
 title: "Python style convention"
 date: 2014-01-22 09:14:17 +0800
 comments: true
-categories: programming 
+categories: programming
+tags: programming python convention
 ---
 
 Most are from [PEP8](http://www.python.org/dev/peps/pep-0008/). I only list what I'd use.
@@ -26,12 +27,12 @@ Most are from [PEP8](http://www.python.org/dev/peps/pep-0008/). I only list what
 
 - Imports should usually be on separate lines, e.g.:
 
-Yes: 
+Yes:
 
     import os
     import sys
 
-No: 
+No:
 
     import sys, os
 
@@ -48,18 +49,18 @@ Avoid extraneous whitespace in the following situations:
 
 - Immediately inside parentheses, brackets or braces.
 
-Yes: 
+Yes:
 
     spam(ham[1], {eggs: 2})
 
 No:
-  
+
     spam( ham[ 1 ], { eggs: 2 } )
 
 
 - Immediately before a comma, semicolon, or colon:
 
-Yes: 
+Yes:
 
     if x == 4: print x, y; x, y = y, x
 
@@ -67,11 +68,11 @@ No:
 
     if x == 4 : print x , y ; x , y = y , x
 
-- Immediately before the open parenthesis that starts the argument 
+- Immediately before the open parenthesis that starts the argument
 
 list of a function call:
 
-Yes: 
+Yes:
 
     spam(1)
 
@@ -79,32 +80,35 @@ No:
 
     spam (1)
 
-- Immediately before the open parenthesis that starts an indexing or 
+- Immediately before the open parenthesis that starts an indexing or
 
 slicing:
 
-Yes: 
-    
+Yes:
+
     dict['key'] = list[index]
-    
+
 No:  
-    
+
     dict ['key'] = list [index]
 
 - More than one space around an assignment (or other) operator to align it with another.
 
 Yes:
 
-    x = 1
-    y = 2
-    long_variable = 3
+{% highlight python %}
+x = 1
+y = 2
+long_variable = 3
+{% endhighlight %}
 
 No:
 
-    x             = 1
-    y             = 2
-    long_variable = 3 
-
+{% highlight python %}
+x             = 1
+y             = 2
+long_variable = 3
+{% endhighlight %}
 
 # Others #
 
@@ -114,14 +118,17 @@ No:
 
 Yes:
 
-    def complex(real, imag=0.0):
-        return magic(r=real, i=imag)
+{% highlight python %}
+def complex(real, imag=0.0):
+    return magic(r=real, i=imag)
+{% endhighlight %}
 
 No:
 
-    def complex(real, imag = 0.0):
-        return magic(r = real, i = imag) 
-
+{% highlight python %}
+def complex(real, imag = 0.0):
+    return magic(r = real, i = imag)
+{% endhighlight %}
 
 # Comments #
 
@@ -197,11 +204,11 @@ No:
 - Always use a def statement instead of an assignment statement that binds a lambda expression directly to a name.
 
 Yes:
-    
+
     def f(x): return 2*x
 
 No:
-    
+
     f = lambda x: 2*x
 
 - When a resource is local to a particular section of code, use a with statement to ensure it is cleaned up promptly and reliably after use. A try/finally statement is also acceptable.
@@ -224,17 +231,17 @@ No:
 
 ```startswith()``` and ```endswith()``` are cleaner and less error prone. For example:
 
-Yes: 
+Yes:
 
     if foo.startswith('bar'):
 
 No:  
-    
+
     if foo[:3] == 'bar’:
 
 - Object type comparisons should always use ```isinstance()``` instead of comparing types directly.
 
-Yes: 
+Yes:
 
     if isinstance(obj, int):
 
@@ -250,27 +257,27 @@ Note that in Python 3, unicode and basestring no longer exist (there is only str
 
 - For sequences, (strings, lists, tuples), use the fact that empty sequences are false.
 
-Yes: 
-    
+Yes:
+
     if not seq:
     if seq:
 
-No: 
+No:
 
     if len(seq)
     if not len(seq)
 
 - Don't compare boolean values to True or False using ```==```.
 
-Yes:   
+Yes:
 
     if greeting:
 
-No:    
-    
+No:
+
     if greeting == True:
 
-Worse: 
+Worse:
 
     if greeting is True:
 
@@ -285,10 +292,10 @@ When you run a Python module with
 
 the code in the module will be executed, just as if you imported it, but with the ```__name__``` set to ```"__main__"```. That means that by adding this code at the end of your module:
 
-    if __name__ == "__main__":
-        import sys
-        fib(int(sys.argv[1]))
+{% highlight python %}
+if __name__ == "__main__":
+    import sys
+    fib(int(sys.argv[1]))
+{% endhighlight %}
 
 you can make the file usable as a script as well as an importable module, because the code that parses the command line only runs if the module is executed as the “main” file.
-
-
