@@ -159,10 +159,14 @@ a:visited { color: #a0a; }
   background-color: #333;
 }
 
-.tags {
+.tag {
   background-color: #dbf1ff;
   padding: 2px;
   margin: 2px;
   border-bottom: 1px solid #80c9ee;
   border-right: 1px solid #80c9ee;
+  font-size: 80%;
+}
+
+.tags {
 }
