@@ -6,24 +6,32 @@
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
 
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <script type="application/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+        <!--<link rel="stylesheet" href="/css/main.css">-->
+        <link rel="stylesheet" href="/css/app.css">
 
     </head>
     <body>
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
+        <div class="container">
+          <div class="page-header">
+              <h1 class="title">
+                  <a href="/">{{ site.name }}</a>
+                  <small><a class="btn btn-link" href="/">home</a></small>
+              </h1>
           </div>
 
           {{ content }}
 
-          <div class="footer">
+          <hr>
+          <div>
             <div class="contact">
               <p>
                 Frank Chen<br />

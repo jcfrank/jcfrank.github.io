@@ -1,5 +1,5 @@
 name: jcfrank7 this and that
 markdown: redcarpet
-pygments: true
+highlighter: pygment
 github: https://github.com/jcfrank/github.io.git
 

@@ -1,0 +1,9 @@
+.list-group {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+
+.title .btn-link {
+  color: #aaa;
+  margin-left: 1em;
+}
