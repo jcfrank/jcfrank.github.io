@@ -3,6 +3,10 @@
   margin-bottom: 2em;
 }
 
-.title .btn-link {
+.btn-link {
   margin-left: 1em;
+}
+
+.title {
+  color: #5bc0de;
 }
