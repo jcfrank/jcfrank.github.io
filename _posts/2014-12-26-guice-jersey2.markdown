@@ -78,9 +78,12 @@ web.xml all need to be set.
 
 After these settings the Guice injections should be working with Jersey
 2.  
-I heard that the cause of Guice not working with Jersey 2 without this
-solution is that Jersey 2 uses its own injection container. So Guice's
-context is different from the resource classes' context. Hence the
-bridge solution to let both context communicate.  
-But I should trace the source to find the cause myself some other
-time.
+
+Why do we need these steps for Guice to work on Jersey 2
+--------------------------------------------------------
+
+I haven't fully understood the cause. But it seems to do with HK2.  
+Jersey 2 uses HK2 as its dependency injection framework.  
+It also works with annotations like @Inject and @Named in javax package.  
+Maybe because all resources instances are under HK2 context, so bindings defined in Guice wouldn't be processed?  
+I'll come back to update when I learn more.  
