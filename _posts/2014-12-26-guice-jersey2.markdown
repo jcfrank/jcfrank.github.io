@@ -82,8 +82,10 @@ After these settings the Guice injections should be working with Jersey
 Why do we need these steps for Guice to work on Jersey 2
 --------------------------------------------------------
 
-I haven't fully understood the cause. But it seems to do with HK2.  
-Jersey 2 uses HK2 as its dependency injection framework.  
-It also works with annotations like @Inject and @Named in javax package.  
-Maybe because all resources instances are under HK2 context, so bindings defined in Guice wouldn't be processed?  
-I'll come back to update when I learn more.  
+Jersey also uses dependency injection to populate resource instances. In Jersey 2, it's HK2.  
+So when resource instances are required by the servlet container, it asks HK2's ServiceLocator.  
+This ServiceLocator doesn't know what we defined in Guice modules.  
+That's basically the reason we get null when we try to inject implementations defined in Guice modules to Jersey resources.  
+
+I haven't look into Guice-Bridge to understand what it does. But probably something like providing Guice Injector's objects to HK2 ServiceLocator.  
+
